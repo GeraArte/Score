@@ -111,5 +111,5 @@ d.text((500, 740), f"Categoria Final: {categoria_final}", fill=cor_categoria, fo
 
 buf = io.BytesIO()
 img.save(buf, format="PNG")
-st.image(img, caption="Relatório Gerado", use_column_width=True)
+st.image(img, caption="Relatório Gerado", use_container_width=True)
 st.download_button("📥 Baixar PNG", data=buf.getvalue(), file_name="relatorio_score_cliente.png", mime="image/png")
