@@ -19,12 +19,16 @@ st.title("App de Score de Cliente")
 
 st.header("🔹 Etapa 1 - Pré-Qualificação")
 
-formato = st.selectbox("Formato do negócio", ["Supermercado e Atacado", "Home Center", "Outros"])
-localizacao = st.selectbox("Localização Geográfica", ["Até 400km", "De 400km até 800km", "De 900km até 1200km", "Acima de 1200km"])
-expansao = st.selectbox("Plano de expansão", ["Expansão", "Projeto único", "Outros"])
-tamanho = st.selectbox("Tamanho da loja", ["Acima de 1800m²", "De 1200m² até 1800m²", "De 800m² até 1200m²", "Até 800m²"])
-obra = st.selectbox("Momento da obra", ["120 a 80 dias", "60 a 80 dias (questionar diretor)", "180 a 120 dias", "Acima de 180 dias"])
-projeto = st.selectbox("Já tem projeto?", ["Projeto Gera Arte", "Caderno/Arq.Parceiro", "Caderno", "Corporativo"])
+formato = st.selectbox("Formato do negócio", ["","Supermercado e Atacado", "Home Center", "Outros"])
+localizacao = st.selectbox("Localização Geográfica", ["","Até 400km", "De 400km até 800km", "De 900km até 1200km", "Acima de 1200km"])
+expansao = st.selectbox("Plano de expansão", ["","Expansão", "Projeto único", "Outros"])
+tamanho = st.selectbox("Tamanho da loja", ["","Acima de 1800m²", "De 1200m² até 1800m²", "De 800m² até 1200m²", "Até 800m²"])
+obra = st.selectbox("Momento da obra", ["","120 a 80 dias", "60 a 80 dias (questionar diretor)", "180 a 120 dias", "Acima de 180 dias"])
+projeto = st.selectbox("Já tem projeto?", ["","Projeto Gera Arte", "Caderno/Arq.Parceiro", "Caderno", "Corporativo"])
+
+if "" in [formato, localizacao, expansao, tamanho, obra, projeto]:
+    st.warning("⚠️ Preencha todos os campos da Pré-Qualificação antes de continuar.")
+    st.stop()
 
 pontuacao_pre = 0
 pontuacao_pre += 10 if formato == "Supermercado e Atacado" else 6 if formato == "Home Center" else 0
@@ -48,12 +52,16 @@ else:
 
 st.header("🔹 Etapa 2 - Qualificação")
 
-concorrencia = st.selectbox("Concorrência", ["Sem fornecedor ou insatisfeito", "Fornecedor regional mas aberto à mudança", "Satisfeito ou contrato fechado"])
-expectativa = st.selectbox("Desejo e Expectativa", ["Gerar valor, impacto visual, modernização", "Apenas deixar mais bonito", "Foco em menor preço"])
-investimento = st.selectbox("Investimento Previsto", ["Verba definida e compatível", "Verba indefinida mas aceitou ZOPA", "Sem verba ou expectativa incompatível"])
-autoridade = st.selectbox("Autoridade de Decisão", ["Decisão com sócio/dono com bom relacionamento", "Decisão com sócio/dono sem relacionamento", "Decisor indireto com acesso fácil", "Decisor sem influência"])
-quantidade = st.selectbox("Quantidade de lojas", ["5 ou mais", "Entre 3 e 5", "Entre 1 e 2", "1 loja"])
-materiais = st.selectbox("Materiais Complementares", ["Plantas e layout completos", "Apenas layout de equipamentos", "Nenhuma informação"])
+concorrencia = st.selectbox("Concorrência", ["","Sem fornecedor ou insatisfeito", "Fornecedor regional mas aberto à mudança", "Satisfeito ou contrato fechado"])
+expectativa = st.selectbox("Desejo e Expectativa", ["","Gerar valor, impacto visual, modernização", "Apenas deixar mais bonito", "Foco em menor preço"])
+investimento = st.selectbox("Investimento Previsto", ["","Verba definida e compatível", "Verba indefinida mas aceitou ZOPA", "Sem verba ou expectativa incompatível"])
+autoridade = st.selectbox("Autoridade de Decisão", ["","Decisão com sócio/dono com bom relacionamento", "Decisão com sócio/dono sem relacionamento", "Decisor indireto com acesso fácil", "Decisor sem influência"])
+quantidade = st.selectbox("Quantidade de lojas", ["","5 ou mais", "Entre 3 e 5", "Entre 1 e 2", "1 loja"])
+materiais = st.selectbox("Materiais Complementares", ["","Plantas e layout completos", "Apenas layout de equipamentos", "Nenhuma informação"])
+
+if "" in [concorrencia, expectativa, investimento, autoridade, quantidade, materiais]:
+    st.warning("⚠️ Preencha todos os campos da Qualificação antes de continuar.")
+    st.stop()
 
 pontuacao_qual = 0
 pontuacao_qual += 25 if concorrencia == "Sem fornecedor ou insatisfeito" else 15 if concorrencia == "Fornecedor regional mas aberto à mudança" else 0
