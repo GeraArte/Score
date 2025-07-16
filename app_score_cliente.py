@@ -19,17 +19,18 @@ st.title("App de Score de Cliente")
 
 st.header("🔹 Etapa 1 - Pré-Qualificação")
 
-formato = st.selectbox("Formato do negócio", ["","Supermercado e Atacado", "Home Center", "Outros"])
-localizacao = st.selectbox("Localização Geográfica", ["","Até 400km", "De 400km até 800km", "De 900km até 1200km", "Acima de 1200km"])
-expansao = st.selectbox("Plano de expansão", ["","Expansão", "Projeto único", "Outros"])
-tamanho = st.selectbox("Tamanho da loja", ["","Acima de 1800m²", "De 1200m² até 1800m²", "De 800m² até 1200m²", "Até 800m²"])
-obra = st.selectbox("Momento da obra", ["","120 a 80 dias", "60 a 80 dias (questionar diretor)", "180 a 120 dias", "Acima de 180 dias"])
-projeto = st.selectbox("Já tem projeto?", ["","Projeto Gera Arte", "Caderno/Arq.Parceiro", "Caderno", "Corporativo"])
+formato = st.selectbox("Formato do negócio", ["", "Supermercado e Atacado", "Home Center", "Outros"])
+localizacao = st.selectbox("Localização Geográfica", ["", "Até 400km", "De 400km até 800km", "De 900km até 1200km", "Acima de 1200km"])
+expansao = st.selectbox("Plano de expansão", ["", "Expansão", "Projeto único", "Outros"])
+tamanho = st.selectbox("Tamanho da loja", ["", "Acima de 1800m²", "De 1200m² até 1800m²", "De 800m² até 1200m²", "Até 800m²"])
+obra = st.selectbox("Momento da obra", ["", "120 a 80 dias", "60 a 80 dias (questionar diretor)", "180 a 120 dias", "Acima de 180 dias"])
+projeto = st.selectbox("Já tem projeto?", ["", "Projeto Gera Arte", "Caderno/Arq.Parceiro", "Caderno", "Corporativo"])
 
+# Verificação obrigatória
 if "" in [formato, localizacao, expansao, tamanho, obra, projeto]:
     st.warning("⚠️ Preencha todos os campos da Pré-Qualificação antes de continuar.")
     st.stop()
-
+    
 pontuacao_pre = 0
 pontuacao_pre += 10 if formato == "Supermercado e Atacado" else 6 if formato == "Home Center" else 0
 pontuacao_pre += 30 if localizacao == "Até 400km" else 17.1 if localizacao == "De 400km até 800km" else 21.4 if localizacao == "De 900km até 1200km" else 12.9
